@@ -1,0 +1,8 @@
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\Project1\JSONProject1\bin\Release\JSONProject1.exe.config
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\Project1\JSONProject1\bin\Release\JSONProject1.exe
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\Project1\JSONProject1\bin\Release\JSONProject1.pdb
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\Project1\JSONProject1\obj\Release\JSONProject1.csproj.SuggestedBindingRedirects.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\Project1\JSONProject1\obj\Release\JSONProject1.csproj.CoreCompileInputs.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\Project1\JSONProject1\obj\Release\JSONProject1.exe
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\Project1\JSONProject1\obj\Release\JSONProject1.pdb
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\Project1\JSONProject1\obj\Release\JSONProject1.csproj.AssemblyReference.cache

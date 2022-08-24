@@ -1,0 +1,17 @@
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWPF4dot8\bin\Release\net48\JSONProjectWPF4dot8.exe.config
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWPF4dot8\bin\Release\net48\JSONProjectWPF4dot8.exe
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWPF4dot8\bin\Release\net48\JSONProjectWPF4dot8.pdb
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWPF4dot8\obj\Release\net48\JSONProjectWPF4dot8.csproj.AssemblyReference.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWPF4dot8\obj\Release\net48\JSONProjectWPF4dot8.csproj.SuggestedBindingRedirects.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWPF4dot8\obj\Release\net48\MainWindow.g.cs
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWPF4dot8\obj\Release\net48\App.g.cs
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWPF4dot8\obj\Release\net48\JSONProjectWPF4dot8_MarkupCompile.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWPF4dot8\obj\Release\net48\JSONProjectWPF4dot8_MarkupCompile.lref
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWPF4dot8\obj\Release\net48\MainWindow.baml
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWPF4dot8\obj\Release\net48\JSONProjectWPF4dot8.g.resources
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWPF4dot8\obj\Release\net48\JSONProjectWPF4dot8.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWPF4dot8\obj\Release\net48\JSONProjectWPF4dot8.AssemblyInfoInputs.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWPF4dot8\obj\Release\net48\JSONProjectWPF4dot8.AssemblyInfo.cs
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWPF4dot8\obj\Release\net48\JSONProjectWPF4dot8.csproj.CoreCompileInputs.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWPF4dot8\obj\Release\net48\JSONProjectWPF4dot8.exe
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWPF4dot8\obj\Release\net48\JSONProjectWPF4dot8.pdb

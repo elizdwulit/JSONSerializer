@@ -1,0 +1,5 @@
+JSONProject1.exe TestJson.txt add image test123 test456
+
+JSONProject1.exe TestJson.txt modify type testing
+
+JSONProject1.exe TestJson.txt delete image

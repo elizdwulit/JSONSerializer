@@ -1,0 +1,56 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c7127353-1284-4ba8-8538-572d0ca0ca8e": {
+      "ProjectGuid": "c7127353-1284-4ba8-8538-572d0ca0ca8e",
+      "DisplayName": "JSONProject1",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "df11e576-5663-4fdf-a7bc-c0afad82c5b4": {
+      "ProjectGuid": "df11e576-5663-4fdf-a7bc-c0afad82c5b4",
+      "DisplayName": "JSONProjectWindowsForm",
+      "ColorIndex": 1
+    },
+    "b707591c-5927-48cd-9fcd-bf5d185b8347": {
+      "ProjectGuid": "b707591c-5927-48cd-9fcd-bf5d185b8347",
+      "DisplayName": "JSONProjectWCF",
+      "ColorIndex": 2
+    },
+    "9cc9b3d7-9b1f-49d3-96ea-0c484f6869cf": {
+      "ProjectGuid": "9cc9b3d7-9b1f-49d3-96ea-0c484f6869cf",
+      "DisplayName": "JSONProjectWPF",
+      "ColorIndex": 3
+    },
+    "f015e890-a0bd-4434-81c6-0d83336356d8": {
+      "ProjectGuid": "f015e890-a0bd-4434-81c6-0d83336356d8",
+      "DisplayName": "JSONProjectWPF",
+      "ColorIndex": 4
+    },
+    "7038b700-084a-4d71-9536-d8ea18abe985": {
+      "ProjectGuid": "7038b700-084a-4d71-9536-d8ea18abe985",
+      "DisplayName": "JSONProjectWPF",
+      "ColorIndex": 5
+    },
+    "c480a7ac-1af5-4a5a-8386-50fa3e804c05": {
+      "ProjectGuid": "c480a7ac-1af5-4a5a-8386-50fa3e804c05",
+      "DisplayName": "JSONProjectWPF",
+      "ColorIndex": 6
+    },
+    "bb1707cc-24f7-49ab-9320-e4c25546edfc": {
+      "ProjectGuid": "bb1707cc-24f7-49ab-9320-e4c25546edfc",
+      "DisplayName": "JSONProjectWPF4.8",
+      "ColorIndex": 7
+    },
+    "7aca79e2-0caa-4d26-bba8-673c72df7314": {
+      "ProjectGuid": "7aca79e2-0caa-4d26-bba8-673c72df7314",
+      "DisplayName": "JSONProjectWPF4dot8",
+      "ColorIndex": 8
+    }
+  },
+  "NextColorIndex": 9
+}

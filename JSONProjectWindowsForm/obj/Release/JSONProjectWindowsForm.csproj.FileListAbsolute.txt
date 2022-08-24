@@ -1,0 +1,11 @@
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWindowsForm\bin\Release\JSONProjectUI.exe.config
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWindowsForm\bin\Release\JSONProjectUI.exe
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWindowsForm\bin\Release\JSONProjectUI.pdb
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWindowsForm\obj\Release\JSONProjectWindowsForm.csproj.AssemblyReference.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWindowsForm\obj\Release\JSONProjectWindowsForm.csproj.SuggestedBindingRedirects.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWindowsForm\obj\Release\JSONProjectUI.Form1.resources
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWindowsForm\obj\Release\JSONProjectUI.Properties.Resources.resources
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWindowsForm\obj\Release\JSONProjectWindowsForm.csproj.GenerateResource.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWindowsForm\obj\Release\JSONProjectWindowsForm.csproj.CoreCompileInputs.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWindowsForm\obj\Release\JSONProjectUI.exe
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject\JSONProjectWindowsForm\obj\Release\JSONProjectUI.pdb

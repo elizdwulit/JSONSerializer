@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ff1bcda1-b3e9-478c-a697-0d185f44685b": {
+      "ProjectGuid": "ff1bcda1-b3e9-478c-a697-0d185f44685b",
+      "DisplayName": "JSONProjectWPF4dot8",
+      "ColorIndex": 0
+    },
+    "06005ab3-c174-4709-9631-d1f103492a36": {
+      "ProjectGuid": "06005ab3-c174-4709-9631-d1f103492a36",
+      "DisplayName": "JSONProjectWPF4dot8",
+      "ColorIndex": 1
+    },
+    "90575814-181b-4786-a877-ed8dabb15385": {
+      "ProjectGuid": "90575814-181b-4786-a877-ed8dabb15385",
+      "DisplayName": "JSONProjectWPF4dot8",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

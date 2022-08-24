@@ -1,0 +1,11 @@
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectUI\bin\Debug\JSONProjectUI.exe.config
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectUI\bin\Debug\JSONProjectUI.exe
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectUI\bin\Debug\JSONProjectUI.pdb
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectUI\obj\Debug\JSONProjectUI.csproj.SuggestedBindingRedirects.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectUI\obj\Debug\JSONProjectUI.Form1.resources
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectUI\obj\Debug\JSONProjectUI.Properties.Resources.resources
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectUI\obj\Debug\JSONProjectUI.csproj.GenerateResource.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectUI\obj\Debug\JSONProjectUI.csproj.CoreCompileInputs.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectUI\obj\Debug\JSONProjectUI.exe
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectUI\obj\Debug\JSONProjectUI.pdb
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectUI\obj\Debug\JSONProjectUI.csproj.AssemblyReference.cache

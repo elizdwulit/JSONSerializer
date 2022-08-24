@@ -1,0 +1,29 @@
+/// <summary>
+        /// Prompt user to decide if an existing file should be overridden.
+        /// </summary>
+        /// <returns>true if file should be overriden, else false</returns>
+        private bool shouldOverrideFile()
+        {
+            ConsoleKey userResponse;
+            do
+            {
+                Console.WriteLine("File with input name already exists. Override? [y/n] ");
+                userResponse = Console.ReadKey(false).Key;
+                if (userResponse != ConsoleKey.Enter)
+                {
+                    Console.WriteLine();
+                }
+
+            } while (userResponse != ConsoleKey.Y && userResponse != ConsoleKey.N);
+
+            if (userResponse == ConsoleKey.Y)
+            {
+                return true;
+            }
+            else // ConsoleKey.N
+            {
+                Console.WriteLine("Please run the program again with a new file name.");
+                Console.ReadLine();
+                return false;
+            }
+        }

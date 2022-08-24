@@ -1,0 +1,82 @@
+﻿<Window x:Class="JSONProjectWPF4dot8.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JSONProjectWPF4dot8"
+        mc:Ignorable="d"
+        Title="JSON Parser" Height="600" Width="850">
+    <Grid Margin="0,0,0,-6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="112*"/>
+            <ColumnDefinition Width="481*"/>
+            <ColumnDefinition Width="258*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="fileChooserTextBox" HorizontalAlignment="Left" Margin="8,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="584" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label x:Name="SelectSrcFileLabel" Content="Select Source File" HorizontalAlignment="Left" Margin="8,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.316,-0.127" Width="108" Height="30" Grid.ColumnSpan="2">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.629"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.274"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Button x:Name="ChooseFileButton" Content="Choose File" HorizontalAlignment="Left" Margin="133,24,0,0" VerticalAlignment="Top" Width="87" Click="ChooseFileButton_Click" Grid.Column="2"/>
+        <TextBox x:Name="ResultTextBox" HorizontalAlignment="Left" Margin="10,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="401" Height="491" TextChanged="ResultTextBox_TextChanged" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="FindKeyTextBox" HorizontalAlignment="Left" Margin="15,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Height="22" Grid.Column="2"/>
+        <Label x:Name="FindKeyLabel" Content="Key To Insert Into (Add Only)" HorizontalAlignment="Left" Margin="314,102,0,0" VerticalAlignment="Top" Height="32" Width="177" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="KeyTextBox" HorizontalAlignment="Left" Margin="15,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Height="22" Grid.Column="2"/>
+        <Label x:Name="KeyLabel" Content="Key (to Add/Delete/Modify/Find)" HorizontalAlignment="Left" Margin="304,149,0,0" VerticalAlignment="Top" Width="187" Height="34" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label x:Name="ValueLabel" Content="Value (Add/Modify only)" HorizontalAlignment="Left" Margin="338,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="174" Height="34" Grid.Column="1" Grid.ColumnSpan="2">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.48" AngleY="0"/>
+                    <RotateTransform Angle="-0.23"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <TextBox x:Name="ValueTextBox" HorizontalAlignment="Left" Margin="15,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Height="186" Grid.Column="2"/>
+        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="318,422,0,0" VerticalAlignment="Top" Width="85" Height="26" Grid.Column="1" Click="AddButton_Click"/>
+        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="424,422,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.076,0.202" Width="85" Height="26" Grid.Column="1" Grid.ColumnSpan="2" Click="DeleteButton_Click"/>
+        <Button x:Name="ModifyButton" Content="Modify" HorizontalAlignment="Left" Margin="49,422,0,0" VerticalAlignment="Top" Width="87" Height="26" Grid.Column="2" Click="ModifyButton_Click"/>
+        <Button x:Name="FindButton" Content="Find" HorizontalAlignment="Left" Margin="159,422,0,0" VerticalAlignment="Top" Width="72" Height="26" Grid.Column="2" Click="FindButton_Click"/>
+        <Button x:Name="UndoButton" Content="Undo Last Action" HorizontalAlignment="Left" Margin="352,473,0,0" VerticalAlignment="Top" Width="140" Height="25" Grid.Column="1" Grid.ColumnSpan="2" Click="UndoButton_Click"/>
+        <Button x:Name="SaveButton" Content="Save Output To File" HorizontalAlignment="Left" Margin="49,473,0,0" VerticalAlignment="Top" Width="134" Height="25" Grid.Column="2" Click="SaveButton_Click"/>
+        <Button x:Name="UploadButton" Content="Upload" HorizontalAlignment="Left" Margin="137,61,0,0" VerticalAlignment="Top" Width="83" Grid.Column="2" Click="UploadButton_Click"/>
+        <Label x:Name="ValueLabel_Copy" Content="Note: JSON values must have" HorizontalAlignment="Left" Margin="314,216,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="169" Height="27" Grid.Column="1" Grid.ColumnSpan="2">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.48" AngleY="0"/>
+                    <RotateTransform Angle="-0.23"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="ValueLabel_Copy1" Content="keys and values wrapped" HorizontalAlignment="Left" Margin="314,226,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="169" Height="27" Grid.Column="1" Grid.ColumnSpan="2">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.48" AngleY="0"/>
+                    <RotateTransform Angle="-0.23"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="ValueLabel_Copy2" Content="in quotation marks" HorizontalAlignment="Left" Margin="314,236,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="169" Height="27" Grid.Column="1" Grid.ColumnSpan="2">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.48" AngleY="0"/>
+                    <RotateTransform Angle="-0.23"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
+    </Grid>
+</Window>

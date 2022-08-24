@@ -1,0 +1,17 @@
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectWPF\obj\Debug\net48\JSONProjectWPF.csproj.AssemblyReference.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectWPF\obj\Debug\net48\JSONProjectWPF.csproj.SuggestedBindingRedirects.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectWPF\obj\Debug\net48\MainWindow.g.cs
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectWPF\obj\Debug\net48\App.g.cs
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectWPF\obj\Debug\net48\JSONProjectWPF_MarkupCompile.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectWPF\obj\Debug\net48\JSONProjectWPF_MarkupCompile.lref
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectWPF\bin\Debug\net48\JSONProjectWPF.exe.config
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectWPF\bin\Debug\net48\JSONProjectWPF.exe
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectWPF\bin\Debug\net48\JSONProjectWPF.pdb
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectWPF\obj\Debug\net48\MainWindow.baml
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectWPF\obj\Debug\net48\JSONProjectWPF.g.resources
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectWPF\obj\Debug\net48\JSONProjectWPF.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectWPF\obj\Debug\net48\JSONProjectWPF.AssemblyInfoInputs.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectWPF\obj\Debug\net48\JSONProjectWPF.AssemblyInfo.cs
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectWPF\obj\Debug\net48\JSONProjectWPF.csproj.CoreCompileInputs.cache
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectWPF\obj\Debug\net48\JSONProjectWPF.exe
+C:\Users\elizd\Downloads\CSE 681 - SW MODELING\EDwulitProject1\JSONProjectWPF\obj\Debug\net48\JSONProjectWPF.pdb
