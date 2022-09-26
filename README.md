@@ -6,6 +6,9 @@ Project 1
 
 This project provides a program JSONProject1.exe that allows a user to provide an input txt file and transform it into a JSON object. The user can add, modify, or remove from the JSON. The output of the txt file after an operation is performed will be saved to the user’s computer.
 
+
+This project also provides a program JSONProjectWPF4dot8.exe that builds off of JSONProject1 to allow a user to provide an input txt file and transform it into a JSON object. The user can still add, modify, remove, or find objects in the JSON. There is also an undo functionality. The output of the users commands can be saved to a file.
+
 ***************************
 To run without user input: in command line, use “RUN_ME.bat” found in the directory "EDwulitProject1\JSONProject1\bin\Release"
 **************************
