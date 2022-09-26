@@ -11,6 +11,7 @@ This project also provides a program JSONProjectWPF4dot8.exe that builds off of 
 
 ***************************
 To run without user input: in command line, use “RUN_ME.bat” found in the directory "EDwulitProject1\JSONProject1\bin\Release"
+To run with WPF form, the exe is located here: ".\JSONProjectWPF4dot8\bin\Release\net48\JSONProjectWPF4dot8.exe"
 **************************
 
 Valid commands are:
