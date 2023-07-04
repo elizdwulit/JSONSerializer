@@ -69,18 +69,21 @@ namespace JSONProjectUI
                 if (valueObj is JSONObject)
                 {
                     KeyValuePair newKvp = new KeyValuePair(newKey, value);
+
+                    // Check if there is an entry for the new key to add. If one exists, do not attempt to add it again (no duplicates)
                     if (((JSONObject)valueObj).getKeyValuePair(newKey) != null)
                     {
                         Console.WriteLine(newKey + " already exists in json object. Use modify method to change it.");
                         return false;
                     }
-                    ((JSONObject)valueObj).addKeyValuePair(newKvp);
 
+                    // Add the new key-value pair to the existing json object
+                    ((JSONObject)valueObj).addKeyValuePair(newKvp);
                     int objectIndex = ObjectFinder.getIndexOfKeyValuePair(this, foundKvp);
                     this.entries[objectIndex] = (new KeyValuePair(findKey, valueObj)); // replace existing value with new object
 
                 }
-                else // just add to bottom of json
+                else  // If the object to add to is not a JSON, add the key-value to the existing list of Key-Value pairs
                 {
                     this.entries.Remove(foundKvp);
                     this.entries.Add(new KeyValuePair(findKey, valueObj));
@@ -123,10 +126,11 @@ namespace JSONProjectUI
         /// <returns>true if entry successfully removed, false if key not found or delete unsuccessful</returns>
         public bool removeKeyValuePair(string key)
         {
+            // Determine if entry associated with the specified key actually exists
             bool found = getKeyValuePair(key) != null;
             if (!found)
             {
-                Console.WriteLine("Remove Operation - Input key was not found in source file. Nothing to remove.");
+                Console.WriteLine("JSONObject.removeKeyValuePair -- Input key was not found in source file. Nothing to remove.");
                 return false;
             }
             foreach (KeyValuePair kvp in entries)
@@ -154,7 +158,7 @@ namespace JSONProjectUI
                 entries[keyIndex] = kvp;
             } else
             {
-                Console.WriteLine("Modify Operation - Input key was not found in source file. Nothing to remove.");
+                Console.WriteLine("JSONObject.modifyKeyValuePair -- Input key was not found in source file. Nothing to remove.");
                 return false;
             }
             return true;
@@ -184,22 +188,23 @@ namespace JSONProjectUI
         /// <returns></returns>
         public static int getNumKeyValuePairs(JSONObject jsonObj)
         {
-            int ret = 0;
             if (jsonObj == null)
             {
                 return 0;
             }
+
+            int count = 0;
             foreach (KeyValuePair kvp in jsonObj.getAllEntries())
             {
                 if (kvp.getVal() is JSONObject)
                 {
-                    ret += 1 + getNumKeyValuePairs((JSONObject)kvp.getVal());
+                    count += 1 + getNumKeyValuePairs((JSONObject)kvp.getVal());
                 } else
                 {
-                    ret++;
+                    count++;
                 }
             }
-            return ret;
+            return count;
         }
     }
 }

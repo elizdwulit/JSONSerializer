@@ -10,6 +10,7 @@ namespace JSONProjectUI
     /// </summary>
     internal class FileSaver
     {
+        // Writer used for writing to the new text file
         private StreamWriter streamWriter;
 
         /// <summary>
@@ -24,6 +25,7 @@ namespace JSONProjectUI
         /// Save the contents of the input JSON Object into a new text file
         /// </summary>
         /// <param name="jsonObj">json object to save</param>
+        /// <param name="outputFileName">Desired name for the output file</param>
         /// <returns>the name of the file that was saved</returns>
         public string saveFile(JSONObject jsonObj, string outputFileName)
         {
@@ -37,6 +39,7 @@ namespace JSONProjectUI
 
             try
             {
+                // Construct the name of the file to save the JSONObject to
                 sb.Append(outputFileName);
                 sb.Append(".txt"); // save as txt file
                 fileSaveName = sb.ToString();
@@ -46,7 +49,7 @@ namespace JSONProjectUI
                 streamWriter = new StreamWriter(fileStream);
                 streamWriter.BaseStream.Seek(0, SeekOrigin.End);
 
-                // for each line in json object write
+                // for each line in json object write the line contents
                 streamWriter.WriteLine("{");
                 List<KeyValuePair> keyValuePairs = jsonObj.getAllEntries();
                 writeJson(keyValuePairs);
@@ -80,17 +83,19 @@ namespace JSONProjectUI
                 string key = kvp.getKey();
                 streamWriter.Write("\"" + key + "\": ");
 
-                // print val
+                // If the value of the key-value pair is a string, write it to the file surrounded by double quotation marks
                 Object val = kvp.getVal();
                 if (val is string)
                 {
                     streamWriter.Write("\"" + val);
+
+                    // if this is not the last key - value pair in the list, append a comma
                     if (i != keyValuePairs.Count - 1)
                     {
                         streamWriter.WriteLine("\",");
                     }
                 }
-                else // val is JSONObject
+                else // If the value is a JSONObject, write it to the file surrounded by curly braces
                 {
                     streamWriter.WriteLine("{");
                     writeJson((val as JSONObject).getAllEntries());

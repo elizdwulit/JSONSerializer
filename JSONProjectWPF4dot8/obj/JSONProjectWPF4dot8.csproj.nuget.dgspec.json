@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\elizd\\Downloads\\CSE 681 - SW MODELING\\EDwulitProject\\JSONProjectWPF4dot8\\JSONProjectWPF4dot8.csproj": {}
+    "C:\\Users\\elizd\\OneDrive\\Documents\\CSE 681 - SW MODELING\\EDwulitProject\\JSONProjectWPF4dot8\\JSONProjectWPF4dot8.csproj": {}
   },
   "projects": {
-    "C:\\Users\\elizd\\Downloads\\CSE 681 - SW MODELING\\EDwulitProject\\JSONProjectWPF4dot8\\JSONProjectWPF4dot8.csproj": {
+    "C:\\Users\\elizd\\OneDrive\\Documents\\CSE 681 - SW MODELING\\EDwulitProject\\JSONProjectWPF4dot8\\JSONProjectWPF4dot8.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\elizd\\Downloads\\CSE 681 - SW MODELING\\EDwulitProject\\JSONProjectWPF4dot8\\JSONProjectWPF4dot8.csproj",
+        "projectUniqueName": "C:\\Users\\elizd\\OneDrive\\Documents\\CSE 681 - SW MODELING\\EDwulitProject\\JSONProjectWPF4dot8\\JSONProjectWPF4dot8.csproj",
         "projectName": "JSONProjectWPF4dot8",
-        "projectPath": "C:\\Users\\elizd\\Downloads\\CSE 681 - SW MODELING\\EDwulitProject\\JSONProjectWPF4dot8\\JSONProjectWPF4dot8.csproj",
+        "projectPath": "C:\\Users\\elizd\\OneDrive\\Documents\\CSE 681 - SW MODELING\\EDwulitProject\\JSONProjectWPF4dot8\\JSONProjectWPF4dot8.csproj",
         "packagesPath": "C:\\Users\\elizd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\elizd\\Downloads\\CSE 681 - SW MODELING\\EDwulitProject\\JSONProjectWPF4dot8\\obj\\",
+        "outputPath": "C:\\Users\\elizd\\OneDrive\\Documents\\CSE 681 - SW MODELING\\EDwulitProject\\JSONProjectWPF4dot8\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\elizd\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,7 +39,7 @@
       "frameworks": {
         "net48": {
           "targetAlias": "net48",
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

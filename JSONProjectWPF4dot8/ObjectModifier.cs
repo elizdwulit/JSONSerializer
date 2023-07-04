@@ -21,7 +21,7 @@ namespace JSONProjectWPF4dot8
             bool success = newJsonObj.addKeyValuePair(key, value);
             if (!success)
             {
-                Console.WriteLine("Failed to add to JSON Object");
+                Console.WriteLine("ObjectModifier.addKeyValuePair -- Failed to add to JSON Object");
                 return null;
             }
             return newJsonObj;
@@ -40,7 +40,7 @@ namespace JSONProjectWPF4dot8
             bool success = jsonObj.addKeyValuePair(findKey, newKey, value);
             if (!success)
             {
-                Console.WriteLine("Failed to add to JSON Object");
+                Console.WriteLine("ObjectModifier.addKeyValuePair -- Failed to add to JSON Object");
                 return null;
             }
             JSONObject newJsonObj = jsonObj;
@@ -58,7 +58,7 @@ namespace JSONProjectWPF4dot8
             bool success = jsonObj.removeKeyValuePair(key);
             if (!success)
             {
-                Console.WriteLine("Failed to delete from JSON Object");
+                Console.WriteLine("ObjectModifier.deleteKeyValuePair -- Failed to delete from JSON Object");
                 return null;
             }
             JSONObject newJsonObj = jsonObj;
@@ -77,7 +77,7 @@ namespace JSONProjectWPF4dot8
             bool success = jsonObj.modifyKeyValuePair(key, replacementVal);
             if (!success)
             {
-                Console.WriteLine("Failed to modify JSON Object");
+                Console.WriteLine("ObjectModifier.modifyStringValue -- Failed to modify JSON Object");
                 return null;
             }
             JSONObject newJsonObj = jsonObj;

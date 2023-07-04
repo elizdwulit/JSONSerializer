@@ -28,11 +28,12 @@ namespace JSONProject
 
             try
             {
+                // Replace all whitespace with a single space
                 fileContents = Regex.Replace(File.ReadAllText(filePath), @"[\r\n\t ]+", " ");
             }
             catch (Exception e)
             {
-                Console.WriteLine("InputReader.convertFileToText -- Exception converting file to text: " + e.Message);
+                Console.WriteLine("FileReader.convertFileToString -- Exception converting file to text: " + e.Message);
                 return string.Empty;
             }
 

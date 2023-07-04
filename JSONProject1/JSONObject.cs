@@ -31,7 +31,7 @@ namespace JSONProject
         }
 
         /// <summary>
-        /// Find the nested json object and create a new key-value pair and add it to the json object
+        /// Find the nested json object, create a new key-value pair, and add it to the json object
         /// </summary>
         /// <param name="findKey">key of nested json object to add to</param>
         /// <param name="newKey">new key to add</param>
@@ -43,21 +43,26 @@ namespace JSONProject
             if (foundKvp != null)
             {
                 Object valueObj = foundKvp.getVal();
+
+                // If the value corresponding to the key to add to is a JSON object, perform logic to add the new key-value inside it
                 if (valueObj is JSONObject)
                 {
                     KeyValuePair newKvp = new KeyValuePair(newKey, value);
+
+                    // Check if there is an entry for the new key to add. If one exists, do not attempt to add it again (no duplicates)
                     if (((JSONObject)valueObj).getKeyValuePair(newKey) != null)
                     {
-                        Console.WriteLine(newKey + " already exists in json object. Use modify method to change it.");
+                        Console.WriteLine("JSONObject.addKeyValuePair -- " + newKey + " already exists in json object. Use modify method to change it.");
                         return false;
                     }
-                    ((JSONObject)valueObj).addKeyValuePair(newKvp);
 
+                    // Add the new key-value pair to the existing json object
+                    ((JSONObject)valueObj).addKeyValuePair(newKvp);
                     int objectIndex = ObjectFinder.getIndexOfKeyValuePair(this, foundKvp);
                     this.entries[objectIndex] = (new KeyValuePair(findKey, valueObj)); // replace existing value with new object
 
                 }
-                else // just add to bottom of json
+                else // If the object to add to is not a JSON, add the key-value to the existing list of Key-Value pairs
                 {
                     this.entries.Remove(foundKvp);
                     this.entries.Add(new KeyValuePair(findKey, valueObj));
@@ -67,7 +72,7 @@ namespace JSONProject
         }
 
         /// <summary>
-        /// Create a new key-value pair and add it to the json object
+        /// Create a new key-value pair and add it to the json object if an entry does not already exist for the specified key.
         /// </summary>
         /// <param name="key">new key to add</param>
         /// <param name="value">string value to add</param>
@@ -76,7 +81,7 @@ namespace JSONProject
         {
             if (getKeyValuePair(key) != null)
             {
-                Console.WriteLine(key + " already exists in json object. Use modify method to change it.");
+                Console.WriteLine("JSONObject.addKeyValuePair -- " + key + " already exists in json object. Use modify method to change it.");
                 return false;
             }
             KeyValuePair kvp = new KeyValuePair(key, value);
@@ -85,7 +90,7 @@ namespace JSONProject
         }
 
         /// <summary>
-        /// Add a key-value pair to the jsonobject
+        /// Add a key-value pair to the JSONObject
         /// </summary>
         /// <param name="kvp">key-value pair to add</param>
         public void addKeyValuePair(KeyValuePair kvp)
@@ -94,16 +99,17 @@ namespace JSONProject
         }
 
         /// <summary>
-        /// Remove a key-value pair from a jsonobject
+        /// Remove a key-value pair from a JSONObject
         /// </summary>
         /// <param name="key">key corresponding to the key-value pair to remove</param>
-        /// <returns>true if entry successfully removed, false if key not found or delete unsuccessful</returns>
+        /// <returns>true if entry successfully removed, false if key not found or delete failed</returns>
         public bool removeKeyValuePair(string key)
         {
+            // Determine if entry associated with the specified key actually exists
             bool found = getKeyValuePair(key) != null;
             if (!found)
             {
-                Console.WriteLine("Remove Operation - Input key was not found in source file. Nothing to remove.");
+                Console.WriteLine("JSONObject.removeKeyValuePair -- Input key was not found in source file. Nothing to remove.");
                 return false;
             }
             foreach (KeyValuePair kvp in entries)
@@ -131,7 +137,7 @@ namespace JSONProject
                 entries[keyIndex] = kvp;
             } else
             {
-                Console.WriteLine("Modify Operation - Input key was not found in source file. Nothing to remove.");
+                Console.WriteLine("JSONObject.modifyKeyValuePair -- Input key was not found in source file. Nothing to replace.");
                 return false;
             }
             return true;
@@ -158,25 +164,27 @@ namespace JSONProject
         /// Get the total number of key-value pairs in a a JSONObject (including nested JSONObjects)
         /// </summary>
         /// <param name="jsonObj">base JSONObject</param>
-        /// <returns></returns>
+        /// <returns>Number of key value pairs in the JSONObject</returns>
         public static int getNumKeyValuePairs(JSONObject jsonObj)
         {
-            int ret = 0;
             if (jsonObj == null)
             {
                 return 0;
             }
+
+            int count = 0;
             foreach (KeyValuePair kvp in jsonObj.getAllEntries())
             {
+                // If the value is another JSON object, count the number of key-value pairs inside it and add to the total count
                 if (kvp.getVal() is JSONObject)
                 {
-                    ret += 1 + getNumKeyValuePairs((JSONObject)kvp.getVal());
+                    count += 1 + getNumKeyValuePairs((JSONObject)kvp.getVal());
                 } else
                 {
-                    ret++;
+                    count++;
                 }
             }
-            return ret;
+            return count;
         }
     }
 }

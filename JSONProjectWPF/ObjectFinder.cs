@@ -34,7 +34,7 @@ namespace JSONProjectWPF
         /// Get the index in the json object where a key is found
         /// </summary>
         /// <param name="jsonObj">the json object to search in</param>
-        /// <param name="kvp">the key to find</param>
+        /// <param name="key">the key to find</param>
         /// <returns>index of key if found, else -1</returns>
         public static int getIndexOfKey(JSONObject jsonObj, string key)
         {

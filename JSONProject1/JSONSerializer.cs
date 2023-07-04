@@ -14,8 +14,8 @@ namespace JSONProject
             {
                 Console.WriteLine("No command specified. Exiting.");
                 Console.WriteLine("Supported Commands:");
-                Console.WriteLine("sourcefilename add <key> <newKey> <value>");
-                Console.WriteLine("sourcefilename add <key> <newKey> <value>");
+                Console.WriteLine("sourcefilename add <key> <value>");
+                Console.WriteLine("sourcefilename add <parentKey> <newNestedKey> <value>");
                 Console.WriteLine("sourcefilename modify <key> <replacement string value>");
                 Console.WriteLine("sourcefilename delete <key>");
                 Console.WriteLine();
@@ -52,6 +52,7 @@ namespace JSONProject
                 default:
                     break;
             }
+
             if (jsonObj != null)
             {
                 printJsonToConsole(jsonObj, 1);
@@ -70,41 +71,46 @@ namespace JSONProject
         {
             if (args.Length != 4 && args.Length != 5)
             {
-                Console.WriteLine("Json Add - Not enough arguments");
+                Console.WriteLine("add -- Not enough arguments");
                 return null;
             }
+
             Console.WriteLine("Adding...");
 
+            // Create the utility class to add to the input JSON
             ObjectModifier objModifier = new ObjectModifier();
             FileReader fileReader = new FileReader();
             FileSaver fileSaver = new FileSaver();
             string fileOutputName = string.Empty;
 
+            // Get a string of the contents of the input file
             string inputText = fileReader.convertFileToString(inputFileName);
+
+            // Create an internal JSONObject of the text file contents
             JSONObject jsonObj = JSONParser.getJsonObject(inputText);
             if (jsonObj != null)
             {
-                if (args.Length == 4) // just adding to base json
+                if (args.Length == 4) // Just append to the JSON object as a new key-value string
                 {
                     fileOutputName = "jsonAddResultEnd";
                     string newKey = args[2];
                     string value = args[3];
                     jsonObj = objModifier.addKeyValuePair(jsonObj, newKey, value);
                 }
-                else // add to primary list
+                else // Adding to a nested JSON
                 {
-                    string findKey = args[2];
-                    string newKey = args[3];
+                    string parentKey = args[2];
+                    string newChildKey = args[3];
                     string value = args[4];
                     fileOutputName = "jsonAddResultNested";
-                    jsonObj = objModifier.addKeyValuePair(jsonObj, findKey, newKey, value);
+                    jsonObj = objModifier.addKeyValuePair(jsonObj, parentKey, newChildKey, value);
                 }
 
                 if (jsonObj != null)
                 {
                     fileSaver.saveFile(jsonObj, fileOutputName);
-                    Console.WriteLine(jsonObj != null ? "Result saved to file: " + fileOutputName : "");
-                    Console.WriteLine("Modified JSON:");
+                    Console.WriteLine(jsonObj != null ? "add -- Result saved to file: " + fileOutputName : "");
+                    Console.WriteLine("add -- Successfully added to the JSON");
                 }
                 return jsonObj;
             }
@@ -121,35 +127,39 @@ namespace JSONProject
         {
             if (args.Length != 4)
             {
-                Console.WriteLine("Json Modify - Not enough arguments");
+                Console.WriteLine("modify -- Not enough arguments");
                 return null;
             }
 
             Console.WriteLine("Modifying...");
 
+            // Create the utility class to add to the input JSON
             ObjectModifier objModifier = new ObjectModifier();
             FileReader fileReader = new FileReader();
             FileSaver fileSaver = new FileSaver();
 
+            // Get a string of the contents of the input file
             string inputText = fileReader.convertFileToString(inputFileName);
             JSONObject jsonObj = JSONParser.getJsonObject(inputText);
             string fileOutputName = "jsonModifyResult";
+
             if (jsonObj != null)
             {
+                // modify the existing key-value pair with the new value
                 string key = args[2];
-                string value = args[3];
-                jsonObj = objModifier.modifyStringValue(jsonObj, key, value);
+                string newValue = args[3];
+                jsonObj = objModifier.modifyStringValue(jsonObj, key, newValue);
                 if (jsonObj != null)
                 {
                     fileSaver.saveFile(jsonObj, fileOutputName);
-                    Console.WriteLine(jsonObj != null ? "Result saved to file: " + fileOutputName : "");
-                    Console.WriteLine("Modified JSON:");
+                    Console.WriteLine(jsonObj != null ? "modify -- Result saved to file: " + fileOutputName : "");
+                    Console.WriteLine("Modified JSON with " + key + " modified with new value");
                 }
                 return jsonObj;
             }
             else
             {
-                Console.WriteLine("Failed to parse JSON.");
+                Console.WriteLine("modify -- Failed to parse JSON.");
                 return null;
             }
         }
@@ -164,11 +174,12 @@ namespace JSONProject
         {
             if (args.Length != 3)
             {
-                Console.WriteLine("Json Delete - Not enough arguments");
+                Console.WriteLine("delete - Not enough arguments");
                 return null;
             }
             Console.WriteLine("Deleting...");
 
+            // Create the utility class to add to the input JSON
             ObjectModifier objModifier = new ObjectModifier();
             FileReader fileReader = new FileReader();
             FileSaver fileSaver = new FileSaver();
@@ -184,8 +195,8 @@ namespace JSONProject
                 if (jsonObj != null)
                 {
                     fileSaver.saveFile(jsonObj, fileOutputName);
-                    Console.WriteLine(jsonObj != null ? "Result saved to file: " + fileOutputName : "");
-                    Console.WriteLine("Modified JSON:");
+                    Console.WriteLine(jsonObj != null ? "delete -- Result saved to file: " + fileOutputName : "");
+                    Console.WriteLine("delete -- Modified JSON with entry deleted");
                 }
                 return jsonObj;
             }
@@ -200,7 +211,7 @@ namespace JSONProject
         /// Print a json object to the console
         /// </summary>
         /// <param name="jsonObj">json object to print</param>
-        /// <param name="tabIndex"></param>
+        /// <param name="tabIndex">The index of the row's tabs</param>
         private static void printJsonToConsole(JSONObject jsonObj, int tabIndex)
         {
             List<KeyValuePair> entries = jsonObj.getAllEntries();
@@ -221,23 +232,31 @@ namespace JSONProject
                 Console.Write(": ");
                 
                 Object val = kvp.getVal();
-                if (val is JSONObject) {
+                if (val is JSONObject) 
+                {
                     printJsonToConsole((JSONObject)val, tabIndex + 1);
-                    Console.Write(currEntry != entries.Count ? "," : "");
+                    
                 } 
                 else
                 {
                     Console.Write("\"");
                     Console.Write((string)val);
                     Console.Write("\"");
-                    Console.Write(currEntry != entries.Count ? "," : "");
                 }
+
+                // if not the last entry, append a comma
+                Console.Write(currEntry != entries.Count ? "," : "");
+
+                // append a new line
                 Console.Write("\n");
             }
+
+            // Add an appropriate amount of tabs
             for (int i = 0; i < tabIndex - 1; i++)
             {
                 Console.Write("\t");
             }
+
             Console.Write("}");
         }
     }

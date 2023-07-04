@@ -28,6 +28,7 @@ namespace JSONProjectUI
 
             try
             {
+                // Replace all whitespace with a single space
                 fileContents = Regex.Replace(File.ReadAllText(filePath), @"[\r\n\t ]+", " ");
             }
             catch (Exception e)

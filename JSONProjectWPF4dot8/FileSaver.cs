@@ -10,6 +10,7 @@ namespace JSONProjectWPF4dot8
     /// </summary>
     internal class FileSaver
     {
+        // Writer used for writing to the new text file
         private StreamWriter streamWriter;
 
         /// <summary>
@@ -24,6 +25,7 @@ namespace JSONProjectWPF4dot8
         /// Save the contents of the input JSON Object into a new text file
         /// </summary>
         /// <param name="jsonObj">json object to save</param>
+        /// <param name="outputFileName">Desired name for the output file</param>
         /// <returns>the name of the file that was saved</returns>
         public string saveFile(JSONObject jsonObj, string outputFileName)
         {
@@ -37,6 +39,7 @@ namespace JSONProjectWPF4dot8
 
             try
             {
+                // Construct the name of the file to save the JSONObject to
                 sb.Append(outputFileName);
                 fileSaveName = sb.ToString();
 
@@ -45,7 +48,7 @@ namespace JSONProjectWPF4dot8
                 streamWriter = new StreamWriter(fileStream);
                 streamWriter.BaseStream.Seek(0, SeekOrigin.End);
 
-                // for each line in json object write
+                // for each line in json object write the line contents
                 //streamWriter.WriteLine("{");
                 List<KeyValuePair> keyValuePairs = jsonObj.getAllEntries();
                 writeTree(keyValuePairs, 1, false);
@@ -65,12 +68,19 @@ namespace JSONProjectWPF4dot8
             return fileSaveName;
         }
 
+        /// <summary>
+        /// Write the JSONObject tree containing the input KeyValuePair entries
+        /// </summary>
+        /// <param name="entries">key-value pairs to write</param>
+        /// <param name="tabIndex">Current index of tabs (needed to display correct indentation)</param>
+        /// <param name="isNestedJson">flag indicating if this json is contained in a parent json</param>
         private void writeTree(List<KeyValuePair> entries, int tabIndex, bool isNestedJson)
         {
             int currEntry = 0;
             streamWriter.WriteLine("");
             foreach (KeyValuePair kvp in entries)
             {
+                // Add spaces to look like tabs
                 currEntry = currEntry + 1;
                 for (int i = 0; i < tabIndex; i++)
                 {
@@ -81,18 +91,20 @@ namespace JSONProjectWPF4dot8
                     }
                 }
 
+                // Write the key surrounded by double quotes
                 streamWriter.Write("\"");
-
                 streamWriter.Write(kvp.getKey());
                 streamWriter.Write("\"");
                 streamWriter.Write(": ");
 
                 Object val = kvp.getVal();
+
+                // If value is another JSON Object, write that subtree
                 if (val is JSONObject)
                 {
                     writeTree(((JSONObject)val).getAllEntries(), tabIndex + 1, true);
                 }
-                else
+                else // If value is not a nested JSON, just write it surrounded by double quotes
                 {
                     streamWriter.Write("\"");
                     streamWriter.Write((string)val);
@@ -104,11 +116,13 @@ namespace JSONProjectWPF4dot8
                     streamWriter.WriteLine("");
                 }
             }
+            // add spaces to look like tabs
             for (int i = 0; i < tabIndex - 1; i++)
             {
                 streamWriter.Write("    ");
                 if (i == tabIndex - 2 && !isNestedJson)
                 {
+                    // Prefix key-value pairs with a "+" sign for readability
                     streamWriter.Write("+");
                 }
             }
@@ -128,17 +142,19 @@ namespace JSONProjectWPF4dot8
                 string key = kvp.getKey();
                 streamWriter.Write("\"" + key + "\": ");
 
-                // print val
+                // If the value of the key-value pair is a string, write it to the file surrounded by double quotation marks
                 Object val = kvp.getVal();
                 if (val is string)
                 {
                     streamWriter.Write("\"" + val);
+
+                    // if this is not the last key-value pair in the list, append a comma
                     if (i != keyValuePairs.Count - 1)
                     {
                         streamWriter.WriteLine("\",");
                     }
                 }
-                else // val is JSONObject
+                else // If the value is a JSONObject, write it to the file surrounded by curly braces
                 {
                     streamWriter.WriteLine("{");
                     writeJson((val as JSONObject).getAllEntries());

@@ -19,7 +19,7 @@ namespace JSONProject
             bool success = jsonObj.addKeyValuePair(key, value);
             if (!success)
             {
-                Console.WriteLine("Failed to add to JSON Object");
+                Console.WriteLine("ObjectModifier.addKeyValuePair -- Failed to add to JSON Object");
                 return null;
             }
             return jsonObj;
@@ -28,17 +28,17 @@ namespace JSONProject
         /// <summary>
         /// Add a key-value pair to a json object, nested in the first passed in key json object section
         /// </summary>
-        /// <param name="findKey">key of nested json object to add to</param>
-        /// <param name="newKey">new key to add</param>
+        /// <param name="parentKey">key of nested json object to add to</param>
+        /// <param name="newChildKey">new key to add</param>
         /// <param name="value">string value to add</param>
-        /// <returns>new json object</returns>
-        public JSONObject addKeyValuePair(JSONObject jsonObj, string findKey, string newKey, string value)
+        /// <returns>new JSONObject with new key-value pair added</returns>
+        public JSONObject addKeyValuePair(JSONObject jsonObj, string parentKey, string newChildKey, string value)
         {
-            KeyValuePair kvp = new KeyValuePair(newKey, value);
-            bool success = jsonObj.addKeyValuePair(findKey, newKey, value);
+            KeyValuePair kvp = new KeyValuePair(newChildKey, value);
+            bool success = jsonObj.addKeyValuePair(parentKey, newChildKey, value);
             if (!success)
             {
-                Console.WriteLine("Failed to add to JSON Object");
+                Console.WriteLine("ObjectModifier.addKeyValuePair -- Failed to add to JSON Object");
                 return null;
             }
             return jsonObj;
@@ -49,13 +49,13 @@ namespace JSONProject
         /// </summary>
         /// <param name="jsonObj">base json object</param>
         /// <param name="key">key of entry to delete</param>
-        /// <returns></returns>
+        /// <returns>JSONObject with key-value pair deleted</returns>
         public JSONObject deleteKeyValuePair(JSONObject jsonObj, string key)
         {
             bool success = jsonObj.removeKeyValuePair(key);
             if (!success)
             {
-                Console.WriteLine("Failed to delete from JSON Object");
+                Console.WriteLine("ObjectModifier.deleteKeyValuePair -- Failed to delete from JSON Object");
                 return null;
             }
             return jsonObj;
@@ -67,13 +67,13 @@ namespace JSONProject
         /// <param name="jsonObj">json object to modify</param>
         /// <param name="key">key corresponding to changing value</param>
         /// <param name="replacementVal">new value</param>
-        /// <returns></returns>
+        /// <returns>JSONObject with value modified</returns>
         public JSONObject modifyStringValue(JSONObject jsonObj, string key, string replacementVal)
         {
             bool success = jsonObj.modifyKeyValuePair(key, replacementVal);
             if (!success)
             {
-                Console.WriteLine("Failed to modify JSON Object");
+                Console.WriteLine("ObjectModifier.modifyStringValue -- Failed to modify JSON Object");
                 return null;
             }
             return jsonObj;

@@ -37,7 +37,7 @@ namespace JSONProject
                     continue;
                 } else if (closingBracketIndexes.Contains(currIndex) && currIndex >= str.Length - 1) // end of object
                 {
-                    return jsonObject;
+                    return jsonObject; // closing bracket indicates the end of the object, so return it
                 }
 
                 if (str[currIndex] == ' ') // skip over whitespace
@@ -84,7 +84,8 @@ namespace JSONProject
         private static ValType getValType(List<int> commaIndexes, List<int> openBracketIndexes, List<int> closingBracketIndexes, 
             List<int> quoteIndexes, ref int currIndex, string key, string str)
         {
-            if (!commaIndexes.Any() && closingBracketIndexes.Count <= 0) // no more commas but still data in the file
+            // no more commas but still data in the file
+            if (!commaIndexes.Any() && closingBracketIndexes.Count <= 0)
             {
                 return ValType.JSON;
             }
@@ -98,13 +99,11 @@ namespace JSONProject
                 {
                     if (quoteIndexes.Contains(i))
                     {
-                        //valIsString = true;
                         currIndex = i; // account for opening quote for string value
                         return ValType.STRING; 
                     }
                     else if (openBracketIndexes.Contains(i))
                     {
-                        //valIsJsonObj = true;
                         currIndex = i; // account for opening bracket of json object
                         return ValType.JSON;
                     }
@@ -128,7 +127,7 @@ namespace JSONProject
             string strVal = getString(str, ref quoteIndexes, currIndex);
             KeyValuePair kvp = new KeyValuePair(key, strVal);
             jsonObject.addKeyValuePair(kvp);
-            currIndex += strVal.Length + 2;
+            currIndex += strVal.Length + 2; // +2 for double quotes
             if (commaIndexes.Count > 0)
             {
                 commaIndexes.RemoveAt(0);
@@ -148,6 +147,7 @@ namespace JSONProject
         private static void addJsonValueToJsonObj(Dictionary<int, int> bracketsDict, ref List<int> quoteIndexes, ref List<int> commaIndexes,
             ref JSONObject jsonObject, ref int currIndex, string key, string str)
         {
+            // Get the nested json object by calculating the total character count and the index of the closing curly brace
             int closingBracketIndex = bracketsDict[currIndex];
             int strLength = closingBracketIndex - currIndex + 1;
             string remainingStr = str.Substring(currIndex, strLength);
@@ -182,18 +182,23 @@ namespace JSONProject
         /// <param name="str">base string to search through</param>
         /// <param name="quoteIndexes">list of all indexes of quotation marks</param>
         /// <param name="currIndex">current index in base string search</param>
-        /// <returns></returns>
+        /// <returns>string that is between double quotation marks</returns>
         private static string getString(string str, ref List<int> quoteIndexes, int currIndex)
         {
+            // Get the index of the opening quote of the input str
             int openQuoteIndex = quoteIndexes.Contains(currIndex) ? currIndex : -1;
             if (openQuoteIndex == -1)
             {
                 return String.Empty;
             }
+
+            // after processing the string, remove the quote indexes from the global List so it is not evaluated again
             quoteIndexes.Remove(currIndex);
             int closingQuoteIndex = quoteIndexes.First();
             quoteIndexes.Remove(closingQuoteIndex);
             int keyLength = closingQuoteIndex - openQuoteIndex;
+
+            // Get the string between the quote indexes
             return str.Substring(openQuoteIndex + 1, keyLength - 1);
         }
 

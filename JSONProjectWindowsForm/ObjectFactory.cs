@@ -84,6 +84,7 @@ namespace JSONProjectUI
         private static ValType getValType(List<int> commaIndexes, List<int> openBracketIndexes, List<int> closingBracketIndexes, 
             List<int> quoteIndexes, ref int currIndex, string key, string str)
         {
+            // no more commas but still data in the file
             if (!commaIndexes.Any() && closingBracketIndexes.Count <= 0) // no more commas but still data in the file
             {
                 return ValType.JSON;
@@ -148,6 +149,7 @@ namespace JSONProjectUI
         private static void addJsonValueToJsonObj(Dictionary<int, int> bracketsDict, ref List<int> quoteIndexes, ref List<int> commaIndexes,
             ref JSONObject jsonObject, ref int currIndex, string key, string str)
         {
+            // Get the nested json object by calculating the total character count and the index of the closing curly brace
             int closingBracketIndex = bracketsDict[currIndex];
             int strLength = closingBracketIndex - currIndex + 1;
             string remainingStr = str.Substring(currIndex, strLength);
@@ -190,10 +192,14 @@ namespace JSONProjectUI
             {
                 return String.Empty;
             }
+
+            // after processing the string, remove the quote indexes from the global List so it is not evaluated again
             quoteIndexes.Remove(currIndex);
             int closingQuoteIndex = quoteIndexes.First();
             quoteIndexes.Remove(closingQuoteIndex);
             int keyLength = closingQuoteIndex - openQuoteIndex;
+
+            // Get the string between the quote indexes
             return str.Substring(openQuoteIndex + 1, keyLength - 1);
         }
 

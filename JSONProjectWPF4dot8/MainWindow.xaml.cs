@@ -355,19 +355,22 @@ namespace JSONProjectWPF4dot8
                     }
                 }
 
+                // Add double quotes around the key
                 ResultTextBox.AppendText("\"");
-
                 ResultTextBox.AppendText(kvp.getKey());
                 ResultTextBox.AppendText("\"");
                 ResultTextBox.AppendText(": ");
 
                 Object val = kvp.getVal();
+
+                // If the value is a json object, print it as a JSON format, not a one line key-value
                 if (val is JSONObject)
                 {
                     printTreeToResultWindow((JSONObject)val, tabIndex + 1, true);
                 }
                 else
                 {
+                    // if just a key-value string, surround the value with double quotes
                     ResultTextBox.AppendText("\"");
                     ResultTextBox.AppendText((string)val);
                     ResultTextBox.AppendText("\"");
@@ -378,6 +381,8 @@ namespace JSONProjectWPF4dot8
                     ResultTextBox.AppendText(Environment.NewLine);
                 }
             }
+
+            // Add spaces for the tabs appearance
             for (int i = 0; i < tabIndex - 1; i++)
             {
                 ResultTextBox.AppendText("    ");
@@ -408,13 +413,15 @@ namespace JSONProjectWPF4dot8
                     ResultTextBox.AppendText("     ");
                 }
 
+                // Add double quotes around the key
                 ResultTextBox.AppendText("\"");
-
                 ResultTextBox.AppendText(kvp.getKey());
                 ResultTextBox.AppendText("\"");
                 ResultTextBox.AppendText(": ");
 
                 Object val = kvp.getVal();
+
+                // If the value is a json object, print it as a JSON format, not a one line key-value
                 if (val is JSONObject)
                 {
                     printJsonToResultWindow((JSONObject)val, tabIndex + 1);
@@ -422,6 +429,7 @@ namespace JSONProjectWPF4dot8
                 }
                 else
                 {
+                    // if just a key-value string, surround the value with double quotes
                     ResultTextBox.AppendText("\"");
                     ResultTextBox.AppendText((string)val);
                     ResultTextBox.AppendText("\"");
@@ -429,6 +437,8 @@ namespace JSONProjectWPF4dot8
                 }
                 ResultTextBox.AppendText(Environment.NewLine);
             }
+
+            // Add spaces for the tabs appearance
             for (int i = 0; i < tabIndex - 1; i++)
             {
                 ResultTextBox.AppendText("     ");

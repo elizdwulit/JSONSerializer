@@ -68,28 +68,32 @@ namespace JSONProjectWPF
                 if (valueObj is JSONObject)
                 {
                     KeyValuePair newKvp = null;
-                    if (value.Contains("\"") && value.Contains("{") && value.Contains("}") && value.Contains(":")) // treat as new json object
+
+                    // If the value contains curly braces, treat as a new JSON object
+                    if (value.Contains("\"") && value.Contains("{") && value.Contains("}") && value.Contains(":"))
                     {
                         JSONObject jsonVal = JSONParser.getJsonObject(value);
                         newKvp = new KeyValuePair(newKey, (JSONObject)jsonVal);
                     }
-                    else
+                    else // If the value does not contain curly braces, just treat as a string value
                     {
                         newKvp = new KeyValuePair(newKey, value);
                     }
 
+                    // Check if there is an entry for the new key to add. If one exists, do not attempt to add it again (no duplicates)
                     if (((JSONObject)valueObj).getKeyValuePair(newKey) != null)
                     {
-                        Console.WriteLine(newKey + " already exists in json object. Use modify method to change it.");
+                        Console.WriteLine("JSONObject.addKeyValuePair -- " + newKey + " already exists in json object. Use modify method to change it.");
                         return false;
                     }
-                    ((JSONObject)valueObj).addKeyValuePair(newKvp);
 
+                    // Add the new key-value pair to the existing json object
+                    ((JSONObject)valueObj).addKeyValuePair(newKvp);
                     int objectIndex = ObjectFinder.getIndexOfKeyValuePair(this, foundKvp);
                     this.entries[objectIndex] = (new KeyValuePair(findKey, valueObj)); // replace existing value with new object
 
                 }
-                else // just add to bottom of json
+                else // If the object to add to is not a JSON, add the key-value to the existing list of Key-Value pairs
                 {
                     this.entries.Remove(foundKvp);
                     this.entries.Add(new KeyValuePair(findKey, valueObj));
@@ -108,21 +112,24 @@ namespace JSONProjectWPF
         {
             if (getKeyValuePair(key) != null)
             {
-                Console.WriteLine(key + " already exists in json object. Use modify method to change it.");
-                return false;
-            }
-            if (this.getKeyValuePair(key) != null)
-            {
-                Console.WriteLine(key + " already exists in json object. Use modify method to change it.");
+                Console.WriteLine("JSONObject.addKeyValuePair -- " + key + " already exists in json object. Use modify method to change it.");
                 return false;
             }
 
-            if (value.Contains("{") && value.Contains("}") && value.Contains(":")) // treat as new json object
+            if (this.getKeyValuePair(key) != null)
+            {
+                Console.WriteLine("JSONObject.addKeyValuePair -- " + key + " already exists in json object. Use modify method to change it.");
+                return false;
+            }
+
+            // If the value contains curly braces, treat as a new JSON object
+            if (value.Contains("{") && value.Contains("}") && value.Contains(":"))
             {
                 JSONObject jsonVal = JSONParser.getJsonObject(value);
                 KeyValuePair kvp = new KeyValuePair(key, (JSONObject)jsonVal);
                 addKeyValuePair(kvp);
-            } else
+            }
+            else // If the value does not contain curly braces, just treat as a string value
             {
                 KeyValuePair kvp = new KeyValuePair(key, value);
                 addKeyValuePair(kvp);
@@ -140,16 +147,17 @@ namespace JSONProjectWPF
         }
 
         /// <summary>
-        /// Remove a key-value pair from a jsonobject
+        /// Remove a key-value pair from a JSONObject
         /// </summary>
         /// <param name="key">key corresponding to the key-value pair to remove</param>
         /// <returns>true if entry successfully removed, false if key not found or delete unsuccessful</returns>
         public bool removeKeyValuePair(string key)
         {
+            // Determine if entry associated with the specified key actually exists
             bool found = getKeyValuePair(key) != null;
             if (!found)
             {
-                Console.WriteLine("Remove Operation - Input key was not found in source file. Nothing to remove.");
+                Console.WriteLine("JSONObject.removeKeyValuePair -- Input key was not found in source file. Nothing to remove.");
                 return false;
             }
             foreach (KeyValuePair kvp in entries)
@@ -177,7 +185,7 @@ namespace JSONProjectWPF
                 entries[keyIndex] = kvp;
             } else
             {
-                Console.WriteLine("Modify Operation - Input key was not found in source file. Nothing to remove.");
+                Console.WriteLine("JSONObject.modifyKeyValuePair -- Input key was not found in source file. Nothing to remove.");
                 return false;
             }
             return true;
@@ -204,25 +212,27 @@ namespace JSONProjectWPF
         /// Get the total number of key-value pairs in a a JSONObject (including nested JSONObjects)
         /// </summary>
         /// <param name="jsonObj">base JSONObject</param>
-        /// <returns></returns>
+        /// <returns>Number of key value pairs in the JSONObject</returns>
         public static int getNumKeyValuePairs(JSONObject jsonObj)
         {
-            int ret = 0;
             if (jsonObj == null)
             {
                 return 0;
             }
+
+            int count = 0;
             foreach (KeyValuePair kvp in jsonObj.getAllEntries())
             {
+                // If the value is another JSON object, count the number of key-value pairs inside it and add to the total count
                 if (kvp.getVal() is JSONObject)
                 {
-                    ret += 1 + getNumKeyValuePairs((JSONObject)kvp.getVal());
+                    count += 1 + getNumKeyValuePairs((JSONObject)kvp.getVal());
                 } else
                 {
-                    ret++;
+                    count++;
                 }
             }
-            return ret;
+            return count;
         }
     }
 }
